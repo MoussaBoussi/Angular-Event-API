@@ -13,7 +13,19 @@ function Api($http, $location) {
             return self.data
         })
     }
+
+    self.setlocationCriteria= function(object) {
+        self.object = object;
+        $location.path("/search");
+        self.data = self.getDiscoveryData(object);
+
+    self.getlocationCriteria = function(){
+        return self.object;
+        return self.data
+    }
 }
+}
+
 
 angular
     .module("App")

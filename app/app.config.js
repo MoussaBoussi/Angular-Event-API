@@ -5,22 +5,23 @@ angular
 .config(["$routeProvider", function($routeProvider) {
     $routeProvider
     .when("/search", {
-        template: "<searchCriteria></searchCriteria>"
+        template: "<search-criteria></search-criteria>"
     })
     .when("/favorites", {
-        template: "<bucketListPage></bucketListPage>"
+        template: "<bucket-list-page></bucket-list-page>"
 
     })
     .when("/location", {
-        template: "<locationPage></locationPage>"
+        template: "<location-page></location-page>"
 
     })
     .when("/eventList", {
-        template: "<eventList></eventList>"
+        template: "<event-list></event-list>"
 
     })
     .when("/details", {
-        template: "<moreDetails></moreDetails>"
+        template: "<more-details></more-details>"
 
     })
+    .otherwise({ redirectTo: "/location"})
 }]);

@@ -10,10 +10,16 @@ const searchCriteria = {
         vm.callApi()
         vm.showFilter = false
         vm.hideSection = function() {
-            vm.showFilter = !vm.showFilter
             console.log("test")
-
+            vm.showFilter = !vm.showFilter
+            Api.getlocationCriteria();
         }
+    vm.sendInfo = function(){
+           vm.data = Api.getlocationCriteria(object);
+           console.log(vm.data);
+            }
+    
+
         
     }]
 
