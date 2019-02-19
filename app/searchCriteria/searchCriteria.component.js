@@ -5,9 +5,10 @@ const searchCriteria = {
     controller: ["Api",function(Api){
         const vm = this
         vm.callApi = function() {
-            console.log(Api.getDiscoveryData("48226"))
+            Api.getDate(vm.searchCriteria.startDate, vm.searchCriteria.endDate)
+            console.log(Api.getDiscoveryData())
         }
-        vm.callApi()
+    
     }]
 }
 
