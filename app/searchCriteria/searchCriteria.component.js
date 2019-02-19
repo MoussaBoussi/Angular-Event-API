@@ -8,7 +8,15 @@ const searchCriteria = {
             console.log(Api.getDiscoveryData("48226"))
         }
         vm.callApi()
+        vm.showFilter = false
+        vm.hideSection = function() {
+            vm.showFilter = !vm.showFilter
+            console.log("test")
+
+        }
+        
     }]
+
 }
 
 angular
