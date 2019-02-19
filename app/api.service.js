@@ -30,16 +30,18 @@ function Api($http, $location) {
     }
 
     self.setlocationCriteria= function(object) {
-        self.object = object;
+        self.locationData = object;
+        // Check if location Data is number or string TODO !!!!
         $location.path("/search");
-        self.data = self.getDiscoveryData(object);
+        // calling the api
+        self.getDiscoveryData(object);
+    }
 
     self.getlocationCriteria = function(){
-        return self.object;
-        return self.data
+        return self.locationData;
     }
 }
-}
+
 
 
 angular
