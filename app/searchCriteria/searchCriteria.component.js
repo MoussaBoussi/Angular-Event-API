@@ -8,8 +8,8 @@ const searchCriteria = {
             Api.getDate(vm.searchCriteria.startDate, vm.searchCriteria.endDate)
             console.log(Api.getDiscoveryData())
         }
-    
     }]
+
 }
 
 angular
