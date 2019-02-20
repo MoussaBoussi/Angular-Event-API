@@ -7,6 +7,9 @@ angular
     .when("/search", {
         template: "<search-criteria></search-criteria>"
     })
+    .when("/results", {
+        template: "<results-page></results-page>"
+    })
     .when("/favorites", {
         template: "<bucket-list-page></bucket-list-page>"
 
