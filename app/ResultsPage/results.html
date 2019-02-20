@@ -5,8 +5,8 @@
         <p class="event-title">{{ event.name }}</p>
         <p class="event-date">{{ event.dates.start.localDate }}</p>
         <p class="event-venue">{{ event._embedded.venues[0].name }}</p>
-       <button>Star</button>
-
+       <button ng-click="$ctrl.favoriteItem($index)">Star</button>
     </div>
-
 </section>
+
+<button ng-click="$ctrl.goToFavorites()">Favorites</button>
