@@ -3,21 +3,26 @@
 const searchCriteria = {
     templateUrl: `app/searchCriteria/searchCriteria.html`,
     controller: ["Api",function(Api){
-        const vm = this
-        vm.callApi = function() {
+        const vm = this;
+        vm.setSearchCriteria = function(searchCriteria) {
+            searchCriteria={}
+            // TODO CHECK IF INPUT IS CITY OR ZIP
+            // searchCriteria.city = vm.locationData.input 
+            searchCriteria.zip = vm.locationData.input
+            // if date exists then >> //else defautl date
             Api.getDate(vm.searchCriteria.startDate, vm.searchCriteria.endDate)
-            console.log(Api.getDiscoveryData())
+
+            searchCriteria.state = vm.locationData.state
+            Api.search(searchCriteria)
         }
         vm.showFilter = false
         vm.hideSection = function() {
-           vm.showFilter = !vm.showFilter
+            console.log("Hello")
+            vm.showFilter = !vm.showFilter
         }
         vm.$onInit = function () {
-            Api.getlocationCriteria();
-        }
-        vm.sendInfo = function(){
-          vm.data = Api.getlocationCriteria(object);
-          console.log(vm.data);
+            vm.locationData = Api.getlocationCriteria();
+            console.log(vm.locationData) //gets passed to locationData
         }
     }]
 
