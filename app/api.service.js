@@ -1,8 +1,9 @@
 "use strict"
 
 function Api($http, $location) {
-    const self = this
-    self.zipCode = null
+    const self = this;
+    self.jsonPayload = null; // set json object to null
+    self.zipCode = null;
     self.searchCriteria = {
         keyword: "",
         city: "",
@@ -35,13 +36,21 @@ function Api($http, $location) {
     // &startDateTime=${self.searchCriteria.startDate}Z&endDateTime=${self.searchCriteria.endDate}Z
     self.getDiscoveryData = function () {
         return $http({
-            url: `https://app.ticketmaster.com/discovery/v2/events.json?apikey=Aewipo0eUXUKyoLGwI5sgqOUpDz7m454&keyword=${self.searchCriteria.keyword}&city=${self.searchCriteria.city}%stateCode=${self.searchCriteria.state}&radius=${self.searchCriteria.radius}&unit=miles&startDateTime=${self.searchCriteria.startDate}Z`,
+            url: `https://app.ticketmaster.com/discovery/v2/events.json?apikey=Aewipo0eUXUKyoLGwI5sgqOUpDz7m454&keyword=${self.searchCriteria.keyword}&city=${self.searchCriteria.city}&stateCode=${self.searchCriteria.state}&radius=${self.searchCriteria.radius}&unit=miles&startDateTime=${self.searchCriteria.startDate}Z&endDateTime=${self.searchCriteria.endDate}Z`,
             method: "GET"
         }) .then(function(response) {
             self.data = response
             console.log(response)
             return self.data
-        })
+        }).then((data) => {             // then passing data to the results page- passing data object and returning self.whatever object 
+            // console.log(data);
+            self.jsonPayload = data;
+            $location.path("/results");
+            return self.jsonPayload;
+        });
+    };
+    self.getJSON = () => {
+        return self.jsonPayload;        //getter for self.jsonPayload object data
     }
 
     self.setlocationCriteria= function(object) {
