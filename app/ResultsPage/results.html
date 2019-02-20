@@ -1,9 +1,11 @@
 <h1>Results</h1>
 
 <section>
-    <div ng-repeat="event in $ctrl.events">
+    <div ng-repeat="event in $ctrl.events track by $index">
         <p class="event-title">{{ event.name }}</p>
-
+        <p class="event-date">{{ event.dates.start.localDate }}</p>
+        <p class="event-venue">{{ event._embedded.venues[0].name }}</p>
+       <button>Star</button>
 
     </div>
 
