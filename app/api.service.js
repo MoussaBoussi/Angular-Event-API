@@ -102,6 +102,7 @@ function Api($http, $location) {
                 console.log(i + "is a match!")
                 self.favoriteList.splice(i, 1);
                 item.favorited = false
+                break;
             } else {
                 return;
             }
