@@ -4,6 +4,8 @@ function Api($http, $location) {
     const self = this;
     self.jsonPayload = null; // set json object to null
     self.zipCode = null;
+    self.favoriteList = [];
+    
     self.searchCriteria = {
         keyword: "",
         city: "",
@@ -63,7 +65,23 @@ function Api($http, $location) {
     self.getlocationCriteria = function(){
         return self.locationData;
     }
+
+    // favorites
+    self.addFavorite = function(newItem){
+        self.favoriteList.push(angular.copy(newItem))
+    }
+    self.getFavoriteList = function(){
+        return self.favoriteList;
+    }
+    self.goToFavorites = function() {
+        $location.path("/favorites");
+    }
+    self.deleteFavorite = function(index){
+        self.favoriteList.splice(index, 1);
+        return self.favoriteList;
+    }
 }
+
 
 
 
