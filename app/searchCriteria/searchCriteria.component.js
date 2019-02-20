@@ -5,11 +5,9 @@ const searchCriteria = {
     controller: ["Api",function(Api){
         const vm = this;
         vm.setSearchCriteria = function(searchCriteria) {
-            searchCriteria={}
-            // TODO CHECK IF INPUT IS CITY OR ZIP
-            // searchCriteria.city = vm.locationData.input 
-            searchCriteria.zip = vm.locationData.input
-            // if date exists then >> //else defautl date
+
+            searchCriteria.city = vm.locationData.input 
+            // if date exists then >> //else default date
             Api.getDate(vm.searchCriteria.startDate, vm.searchCriteria.endDate)
 
             searchCriteria.state = vm.locationData.state
