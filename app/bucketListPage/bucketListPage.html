@@ -3,6 +3,6 @@
         <p class="event-title">{{ favorites.name }}</p>
         <p class="event-date">{{ favorites.dates.start.localDate }}</p>
         <p class="event-venue">{{ favorites._embedded.venues[0].name }}</p>
-       <button ng-click="$ctrl.deleteItem($index)">Delete</button>
+       <button ng-click="$ctrl.deleteItem(favorites)">Delete</button>
     </div>
 </section>

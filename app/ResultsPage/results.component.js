@@ -4,8 +4,11 @@ const resultsPage = {
     templateUrl: `app/ResultsPage/results.html`,
     controller: ["Api", function(Api){
         const vm = this;
-        vm.eventData = Api.getJSON();                   //event data property equal to Api service and event data getter
-        vm.events = vm.eventData.data._embedded.events;
+
+        vm.$onInit = function() {
+            vm.eventData = Api.getJSON();          
+            vm.events = vm.eventData.data._embedded.events;
+        }
         // event property to the embedded events in console
         
        vm.noResultsFound = () => {              // fail safe 
@@ -15,11 +18,16 @@ const resultsPage = {
                 return false;
             }
         };
-        vm.favoriteItem = function(index) {
-            Api.addFavorite(vm.events[index])
+        vm.favoriteItem = function(event) {
+            Api.checkFavorites(event)
         }
         vm.goToFavorites = function () {
             Api.goToFavorites()
+        }
+
+        vm.moreDetails = function (event) {
+            console.log("works")
+            Api.setMoreDetails(event)
         }
     }]
 }

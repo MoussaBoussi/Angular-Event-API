@@ -16,7 +16,6 @@ function Api($http, $location) {
     }
     self.getDate = function(start, end){
         console.log(start)
-
         let str = start.toISOString();
         let startDate = str.split("").splice(0, str.length - 5).join("");
         let str1 = end.toISOString();
@@ -52,6 +51,11 @@ function Api($http, $location) {
         });
     };
     self.getJSON = () => {
+        for (let i = 0; i < self.jsonPayload.length; i++) {
+            self.jsonPayload[i].favorited = false
+            self.jsonPayload[i].id = i
+            console.log(self.jsonPayload[i].id)
+        }
         return self.jsonPayload;        //getter for self.jsonPayload object data
     }
 
@@ -67,6 +71,18 @@ function Api($http, $location) {
     }
 
     // favorites
+    self.checkFavorites = function(event){
+        if (event.favorited){
+            event.favorited = false
+            console.log("favorited = false")
+            self.deleteFavorite(event.id)
+        } else {
+            event.favorited = true
+            console.log("favorited = true")
+            self.addFavorite(event)
+        }
+    }
+
     self.addFavorite = function(newItem){
         self.favoriteList.push(angular.copy(newItem))
     }
@@ -76,9 +92,30 @@ function Api($http, $location) {
     self.goToFavorites = function() {
         $location.path("/favorites");
     }
-    self.deleteFavorite = function(index){
-        self.favoriteList.splice(index, 1);
+    self.deleteFavorite = function(item){
+        //loop through the favorite
+        //look for id 
+        //splice the id at that index 
+
+        for (let i = 0; i < self.favoriteList.length; i++) {
+            if (self.favoriteList[i].id === item.id) {
+                console.log(i + "is a match!")
+                self.favoriteList.splice(i, 1);
+                item.favorited = false
+            } else {
+                return;
+            }
+        }
+
         return self.favoriteList;
+    }
+
+    self.setMoreDetails = function(event) {
+        self.moreDetails = event
+        $location.path("/details");
+    }
+    self.getMoreDetails = function() {
+        return self.moreDetails;
     }
 }
 

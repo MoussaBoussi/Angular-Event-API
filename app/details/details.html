@@ -1,0 +1,10 @@
+<h1>Results</h1>
+
+<section>
+    <div ng-repeat="event in $ctrl.info track by $index">
+        <p class="event-title">{{ info.name }}</p>
+        <p class="event-date">{{ info.dates.start.localDate }}</p>
+        <p class="event-venue">{{ info._embedded.venues[0].name }}</p>
+       <button ng-click="$ctrl.favoriteItem(event)">Star</button>
+    </div>
+</section>

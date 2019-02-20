@@ -8,8 +8,8 @@ const bucketListPage = {
         vm.$onInit = function(){
             vm.favoriteList = Api.getFavoriteList();
         }
-        vm.deleteItem = function(index){
-           vm.favoriteList = Api.deleteFavorite(index);
+        vm.deleteItem = function(item){
+           vm.favoriteList = Api.deleteFavorite(item);
         }
     }]
 };
