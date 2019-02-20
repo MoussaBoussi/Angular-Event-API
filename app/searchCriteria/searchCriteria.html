@@ -1,26 +1,27 @@
 
 <!-- TODO : MAKE SURE ALL OBJECTS MATCH!!! -->
 
-<h1> <img src=“/app/placeholder/placeholder.jpeg”>ollly</h1>
-<input type=“text” placeholder=“Search for event”>
-<button><svg class=“searchicon” xmlns=“http://www.w3.org/2000/svg” width=“24" height=“24” viewBox=“0 0 24 24"><path d=“M23.809 21.646l-6.205-6.205c1.167-1.605 1.857-3.579 1.857-5.711 0-5.365-4.365-9.73-9.731-9.73-5.365 0-9.73 4.365-9.73 9.73 0 5.366 4.365 9.73 9.73 9.73 2.034 0 3.923-.627 5.487-1.698l6.238 6.238 2.354-2.354zm-20.955-11.916c0-3.792 3.085-6.877 6.877-6.877s6.877 3.085 6.877 6.877-3.085 6.877-6.877 6.877c-3.793 0-6.877-3.085-6.877-6.877z”/></svg>
-</button>
-<button>All events</button> <button ng-click=“$ctrl.hideSection()“>Filter results</button>
+<h1>ollly</h1>
 
-<section ng-if=“$ctrl.showFilter”>
+<form ng-submit="$ctrl.setSearchCriteria($ctrl.searchCriteria)">
+   <input ng-model="$ctrl.searchCriteria.keyword" type="text"> 
+   <button>
+
+   </button>
+</form>
+
+<button>All events</button>
+<button ng-click="$ctrl.hideSection()">Filter results</button>
+
+<section ng-if="$ctrl.showFilter">
 
   <button>Filter results</button>
    <form>
-       <input id=“location” type=“text” placeholder=“city”>
-       <input id=“locationRange” type=“number” placeholder=“range”>
-       <input id=“startDate” type=“Date”>
-       <input id=“endDate” type=“Date”>
+      <button ng-click="$ctrl.searchCriteria.range=10" type="button">10 miles</button>
+      <button ng-click="$ctrl.searchCriteria.range=50" type="button">50 miles</button>
+      <button ng-click="$ctrl.searchCriteria.range=100" type="button">100 miles</button>
+      <input ng-model="$ctrl.searchCriteria.startDate" type="date"/>
+      <input ng-model="$ctrl.searchCriteria.endDate" type="date"/>
    </form>
 </section>
-<p>Looking for results in: {{ city / zip }}</p> <button><svg xmlns=“http://www.w3.org/2000/svg” width=“24” height=“24" viewBox=“0 0 24 24”><path d=“M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.326 18.266l-4.326-2.314-4.326 2.313.863-4.829-3.537-3.399 4.86-.671 2.14-4.415 2.14 4.415 4.86.671-3.537 3.4.863 4.829z”/></svg></button>
-
-<form ng-submit=“$ctrl.callApi()“>
-   <input ng-model=“$ctrl.searchCriteria.startDate” type=“date”/>
-   <input ng-model=“$ctrl.searchCriteria.endDate” type=“date”/>
-   <button>test</button>
-</form>
+<p>Looking for results in: {{ city / zip }}</p> <button>star</button>
