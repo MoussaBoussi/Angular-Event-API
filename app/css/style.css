@@ -124,8 +124,20 @@ select option {
     padding: 4px 8px;
     width:200px;
 }
+.logocontainer {
+    background-image: linear-gradient(to right, #4e54c8 , #8f94fb);
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    width: 100vw;
+    z-index: 100;
 
-
+}
+.headerlogo {
+max-width: 100px;
+margin: 16px 0;
+align-self: center;
+}
 
 .searchBtnCont {
     margin: 16px;
@@ -228,6 +240,8 @@ select option {
     flex-direction: row;
     flex-wrap: wrap;
     font-size: 12px;
+    min-height: 100vh;
+    padding-top: 80px;
 }
 
 .event-image {
@@ -246,6 +260,9 @@ select option {
     padding: 5px;
     border-radius: 50%;
     background-color: #3a3e8f;
+}
+.favBtn:hover {
+    cursor: pointer;
 }
 
 .star {
@@ -277,6 +294,9 @@ select option {
     width: 100%;
     padding: 5px 0;
     font-size: 14px;
+}
+.details:hover {
+    cursor: pointer;
 }
 .delete {
     background-color: red;
@@ -334,6 +354,7 @@ select option {
     flex-direction: row;
     flex-wrap: wrap;
 }
+
 /* ANIMATION */
  @-webkit-keyframes wobble-hor-top {
     0%,

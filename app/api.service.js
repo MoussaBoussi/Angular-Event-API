@@ -102,9 +102,7 @@ function Api($http, $location) {
                 self.favoriteList.splice(i, 1);
                 item.favorited = false
                 break;
-            } else {
-                return;
-            }
+            } 
         }
 
         return self.favoriteList;
