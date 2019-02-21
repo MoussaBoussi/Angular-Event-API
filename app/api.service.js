@@ -24,13 +24,12 @@ function Api($http, $location) {
         self.searchCriteria.endDate = endDate
     }
     self.search = function(searchCriteria) {
-        
         self.searchCriteria.keyword = searchCriteria.keyword
         self.searchCriteria.radius = searchCriteria.range
         self.searchCriteria.city = searchCriteria.city
-        self.searchCriteria.zip = searchCriteria.zip
         self.searchCriteria.state = searchCriteria.state
-        console.log(self.searchCriteria)
+                        
+
         self.getDiscoveryData()
     }
 
@@ -74,11 +73,11 @@ function Api($http, $location) {
     self.checkFavorites = function(event){
         if (event.favorited){
             event.favorited = false
-            console.log("favorited = false")
-            self.deleteFavorite(event.id)
+            console.log(event.favorited)
+            self.deleteFavorite(event)
         } else {
             event.favorited = true
-            console.log("favorited = true")
+            console.log(event.favorited)
             self.addFavorite(event)
         }
     }

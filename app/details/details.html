@@ -1,10 +1,13 @@
-<h1>Results</h1>
-
-<section>
-    <div ng-repeat="event in $ctrl.info track by $index">
-        <p class="event-title">{{ info.name }}</p>
-        <p class="event-date">{{ info.dates.start.localDate }}</p>
-        <p class="event-venue">{{ info._embedded.venues[0].name }}</p>
-       <button ng-click="$ctrl.favoriteItem(event)">Star</button>
+<section class="gradient">
+    <div class="detailsCard">
+        <img class="details-image" src="{{ $ctrl.info.images[1].url}}">
+        <p class="event-title details-title">{{ $ctrl.info.name }}</p>
+        <p class="event-date">{{ $ctrl.info.dates.start.localDate }}</p>
+        <p class="event-venue">{{ $ctrl.info._embedded.venues[0].name }}</p>
+        <a href="{{ $ctrl.info.url }}">
+            <button class="get-tickets">
+                Get Tickets
+            </button>
+        </a> 
     </div>
 </section>

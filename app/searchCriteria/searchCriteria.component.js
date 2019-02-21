@@ -6,12 +6,14 @@ const searchCriteria = {
         const vm = this;
         vm.setSearchCriteria = function(searchCriteria) {
 
-            searchCriteria.city = vm.locationData.input 
+            vm.searchCriteria.city = vm.locationData.input 
+
             // if date exists then >> //else default date
             Api.getDate(vm.searchCriteria.startDate, vm.searchCriteria.endDate)
 
-            searchCriteria.state = vm.locationData.state
-            Api.search(searchCriteria)
+// check this change from searchCriteria to vm.searchCriteria
+            vm.searchCriteria.state = vm.locationData.state
+            Api.search(vm.searchCriteria)
         }
         vm.showFilter = false
         vm.hideSection = function() {
@@ -21,7 +23,9 @@ const searchCriteria = {
         vm.$onInit = function () {
             vm.locationData = Api.getlocationCriteria();
             console.log(vm.locationData) //gets passed to locationData
-            vm.location = Api.getlocationCriteria();
+        }
+        vm.goToFavorites = function () {
+            Api.goToFavorites();
         }
     }]
 
