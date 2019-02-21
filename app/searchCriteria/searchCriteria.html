@@ -1,6 +1,6 @@
 <section class="gradient">
    <div class="logo">
-         <img class="logoImg" src="/app/assets/images/Sax.png">
+         <img logohover class="logoImg" src="/app/assets/images/Sax.png">
          <h1 logohover class="logoText">ollly</h1>
       </div>
    
@@ -12,7 +12,6 @@
    </form>
    
    <div class="searchBtnCont">
-      <button class="mainSearchBtn">All events</button>
       <button class="mainSearchBtn" ng-click="$ctrl.hideSection()">Filter results</button>
    </div>
    
@@ -34,8 +33,8 @@
       </form>
    </section>
 
-   <p class="lookingFor">Looking for results in: <span class="loc">{{ $ctrl.location.input }}</span></p> 
-   <button class="favoritesBtn">
+   <p class="lookingFor">Looking for results in: <span class="loc">{{ $ctrl.locationData.input }}</span></p> 
+   <button ng-click="$ctrl.goToFavorites()" class="favoritesBtn">
       <svg class="favoritesIco" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 .288l2.833 8.718h9.167l-7.417 5.389 2.833 8.718-7.416-5.388-7.417 5.388 2.833-8.718-7.416-5.389h9.167z"/></svg>
    </button>
 </section>

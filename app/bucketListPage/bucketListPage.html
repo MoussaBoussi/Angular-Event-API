@@ -1,8 +1,9 @@
-<section>
-    <div ng-repeat="favorites in $ctrl.favoriteList track by $index">
+<section class="gradient bucketlistpage">
+    <div class = "card" ng-repeat="favorites in $ctrl.favoriteList track by $index">
+        <img class ="event-image" src="{{ favorites.images[1].url}}">
         <p class="event-title">{{ favorites.name }}</p>
         <p class="event-date">{{ favorites.dates.start.localDate }}</p>
         <p class="event-venue">{{ favorites._embedded.venues[0].name }}</p>
-       <button ng-click="$ctrl.deleteItem(favorites)">Delete</button>
+       <button class="details delete" ng-click="$ctrl.deleteItem(favorites)">Delete</button>
     </div>
 </section>

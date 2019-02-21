@@ -84,6 +84,11 @@ select option {
     border-radius: 0px 20px 20px 0px;
 }
 
+.searchicon:focus {
+    border: 1px solid white;
+    
+}
+
 .searchImg {
     fill: #dff9fb;
 }
@@ -114,6 +119,7 @@ select option {
     margin: 0 16px;
     color: #dff9fb;
     border: 2px solid #dff9fb;
+    border-radius: 0px 0px px 5px;
     padding: 0;
     padding: 4px 8px;
     width:200px;
@@ -168,6 +174,12 @@ select option {
     border-radius: 50px;
     font-size: 16px;
 }
+
+.rangebutton:focus {
+    background-color: #3a3e8f;
+    color: #dff9fb;
+    border: 1px solid white;
+}
 .filterform {
     width: 450px;
     background-color: #3a3e8f;
@@ -210,11 +222,118 @@ select option {
     padding-left: 10px;
 }
 
+.cardCont {
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-size: 12px;
+}
+
+.event-image {
+    height:150px;
+    width: 250px;
+    object-fit: fill;
+    align-self: center;
+}
+
+.favBtn {
+    position: absolute;
+    align-self: flex-end;
+    margin-top: 133px;
+    margin-left: -16px;
+    padding: 0;
+    padding: 5px;
+    border-radius: 50%;
+    background-color: #3a3e8f;
+}
+
+.star {
+    fill:#dff9fb;
+}
+
+.card {
+    height: 300px;
+    background-color: #dff9fb;
+    max-width: 250px;
+    margin: 16px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.event-date, .event-title, .event-venue {
+    margin: 0;
+    margin: 5px 0;
+    padding: 0 5px;
+}
+
+.details {
+    background-color: #3a3e8f;
+    color:#dff9fb;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 5px 0;
+    font-size: 14px;
+}
+.delete {
+    background-color: red;
+    color:#dff9fb;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 5px 0;
+    font-size: 14px;
+}
+
+.event-title {
+    margin-top: 23px;
+    font-weight: 800;
+}
+
 .wobble-hor-top {
 	-webkit-animation: wobble-hor-top 5s both;
 	        animation: wobble-hor-top 5s both;
 }
 
+.Title {
+    background-image: linear-gradient(to right, #4e54c8 , #8f94fb);
+    text-align: center;
+    color: #dff9fb;
+    padding: 5px 0;
+}
+
+.details-image {
+    width: 400px;
+}
+
+.detailsCard {
+    background-color: #dff9fb;
+    width: 400px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    text-align: center;
+}
+
+.get-tickets{
+    background-color: #3a3e8f;
+    color: #dff9fb;
+    width: 400px;
+    font-size: 18px;
+    padding: 10px 0;
+}
+
+.details-title{
+    margin:0;
+    font-size: 20px;
+}
+
+.bucketlistpage {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
 /* ANIMATION */
  @-webkit-keyframes wobble-hor-top {
     0%,
