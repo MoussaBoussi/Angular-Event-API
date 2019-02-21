@@ -21,6 +21,7 @@ const searchCriteria = {
         vm.$onInit = function () {
             vm.locationData = Api.getlocationCriteria();
             console.log(vm.locationData) //gets passed to locationData
+            vm.location = Api.getlocationCriteria();
         }
     }]
 

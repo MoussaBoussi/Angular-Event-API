@@ -1,27 +1,41 @@
-
-<!-- TODO : MAKE SURE ALL OBJECTS MATCH!!! -->
-
-<h1>ollly</h1>
-
-<form ng-submit="$ctrl.setSearchCriteria($ctrl.searchCriteria)">
-   <input ng-model="$ctrl.searchCriteria.keyword" type="text"> 
-   <button>
-
-   </button>
-</form>
-
-<button>All events</button>
-<button ng-click="$ctrl.hideSection()">Filter results</button>
-
-<section ng-if="$ctrl.showFilter">
-
-  <button>Filter results</button>
-   <form>
-      <button ng-click="$ctrl.searchCriteria.range=10" type="button">10 miles</button>
-      <button ng-click="$ctrl.searchCriteria.range=50" type="button">50 miles</button>
-      <button ng-click="$ctrl.searchCriteria.range=100" type="button">100 miles</button>
-      <input ng-model="$ctrl.searchCriteria.startDate" type="date"/>
-      <input ng-model="$ctrl.searchCriteria.endDate" type="date"/>
+<section class="gradient">
+   <div class="logo">
+         <img class="logoImg" src="/app/assets/images/Sax.png">
+         <h1 class="logoText">ollly</h1>
+      </div>
+   
+   <form class="locationForm searchForm" ng-submit="$ctrl.setSearchCriteria($ctrl.searchCriteria)">
+      <input class="searchBar searchBarMain" ng-model="$ctrl.searchCriteria.keyword" type="text"> 
+      <button class="searchicon">
+            <svg class="searchImg" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path d="M23.809 21.646l-6.205-6.205c1.167-1.605 1.857-3.579 1.857-5.711 0-5.365-4.365-9.73-9.731-9.73-5.365 0-9.73 4.365-9.73 9.73 0 5.366 4.365 9.73 9.73 9.73 2.034 0 3.923-.627 5.487-1.698l6.238 6.238 2.354-2.354zm-20.955-11.916c0-3.792 3.085-6.877 6.877-6.877s6.877 3.085 6.877 6.877-3.085 6.877-6.877 6.877c-3.793 0-6.877-3.085-6.877-6.877z"/></svg></button>
+      </button>
    </form>
+   
+   <div class="searchBtnCont">
+      <button class="mainSearchBtn">All events</button>
+      <button class="mainSearchBtn" ng-click="$ctrl.hideSection()">Filter results</button>
+   </div>
+   
+   <section class="filterform" ng-if="$ctrl.showFilter">
+      <form class="filterformInner">
+         <p class="subheading">Select Range</p>
+         <div class="rangeButtons">
+            <button class= "rangebutton" ng-click="$ctrl.searchCriteria.range=10" type="button">10 miles</button>
+            <button class= "rangebutton" ng-click="$ctrl.searchCriteria.range=50" type="button">50 miles</button>
+            <button class= "rangebutton" ng-click="$ctrl.searchCriteria.range=100" type="button">100 miles</button> 
+         </div>
+         <div class="dateinputs">
+            <p class="subheading">Start Date:</p>
+            <input class= "dateinput" ng-model="$ctrl.searchCriteria.startDate" type="date"/>
+            <p class="subheading">End Date:</p>
+            <input class= "dateinput" ng-model="$ctrl.searchCriteria.endDate" type="date"/>
+         </div>         
+         
+      </form>
+   </section>
+
+   <p class="lookingFor">Looking for results in: <span class="loc">{{ $ctrl.location.input }}</span></p> 
+   <button class="favoritesBtn">
+      <svg class="favoritesIco" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 .288l2.833 8.718h9.167l-7.417 5.389 2.833 8.718-7.416-5.388-7.417 5.388 2.833-8.718-7.416-5.389h9.167z"/></svg>
+   </button>
 </section>
-<p>Looking for results in: {{ city / zip }}</p> <button>star</button>
